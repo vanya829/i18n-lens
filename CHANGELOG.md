@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/vanya829/i18n-lens/compare/v1.0.0...v1.0.1) (2026-05-18)
+
+
+### Bug Fixes
+
+* initial npm publish ([169b828](https://github.com/vanya829/i18n-lens/commit/169b82800428b5ed9b5959c71aeb3f6f770d3318))
+
 # 1.0.0 (2026-05-18)
 
 

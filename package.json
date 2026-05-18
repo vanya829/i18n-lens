@@ -1,6 +1,6 @@
 {
   "name": "i18n-lens",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "CLI and library for managing i18n translation files — sort keys, compare across locales, find duplicate values",
   "engines": {
     "node": ">=24.0.0"
