@@ -1,0 +1,45 @@
+name: CI
+
+# Branch strategy:
+#   main        → stable releases (auto-published by the release workflow)
+#   develop     → beta pre-releases (auto-published as x.y.z-beta.n)
+#   feature/**  → new features, PR into develop
+#   fix/**      → bug fixes, PR into develop or main
+#   chore/**    → maintenance, PR into develop
+
+on:
+  push:
+    branches: [main, master, develop, 'feature/**', 'fix/**', 'chore/**']
+  pull_request:
+    branches: [main, master, develop]
+
+jobs:
+  ci:
+    name: Typecheck · Test · Build
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x, 22.x]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Test
+        run: npm test
+
+      - name: Build
+        run: npm run build

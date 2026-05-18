@@ -1,0 +1,60 @@
+{
+  "name": "i18n-lens",
+  "version": "0.1.0",
+  "description": "CLI and library for managing i18n translation files — sort keys, compare across locales, find duplicate values",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "bin": {
+    "i18n-lens": "./dist/cli.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "vite build && npm run postbuild",
+    "postbuild": "chmod +x dist/cli.js",
+    "dev": "vite build --watch",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prepare": "husky"
+  },
+  "keywords": [
+    "i18n",
+    "translations",
+    "localization",
+    "cli",
+    "translation-keys",
+    "sort",
+    "compare"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "@commitlint/cli": "^21.0.1",
+    "@commitlint/config-conventional": "^21.0.1",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
+    "@types/node": "^25.9.0",
+    "husky": "^9.1.7",
+    "semantic-release": "^25.0.3",
+    "typescript": "^5.4.0",
+    "vite": "^5.2.0",
+    "vite-plugin-dts": "^3.9.0",
+    "vitest": "^4.1.6"
+  },
+  "dependencies": {
+    "audit": "^0.0.6",
+    "chalk": "^5.3.0",
+    "commander": "^12.1.0",
+    "fast-glob": "^3.3.2",
+    "fix": "^0.0.6"
+  }
+}
